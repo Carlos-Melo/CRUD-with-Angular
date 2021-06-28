@@ -1,0 +1,10 @@
+<div class="contatos-area">
+    <div class="list-area">
+        <app-list-contatos></app-list-contatos>
+    </div>
+    <div [class.formMobile]="click" class="form-area">
+        <div class="windowClose"><fa-icon (click)="isClicked()" [class.iconCloseMobile]="click" [icon]="faWindowClose"></fa-icon></div>
+        <app-form-contatos></app-form-contatos>
+    </div>
+    <fa-icon (click)="isClicked()" [class.iconCircleMobile]="click" [icon]="faPlusCircle"></fa-icon>
+</div>

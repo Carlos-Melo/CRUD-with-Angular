@@ -1,0 +1,49 @@
+.cadastro-area {
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.cadastro-area h3 {
+    color: #616161;
+    margin-top: 60px;
+}
+
+.cadastro-area hr {
+    width: 40px;
+    border: none;
+    border-top: 2px solid #5981e3;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.cadastro-area input, select {
+    width: 60%;
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    background-color: white;
+    color: #616161;
+    padding: 7px;
+    margin-top: 20px;
+    outline: none;
+}
+
+.cadastro-area input:focus, select:focus {
+    border-bottom: 2px solid #5981e3;
+}
+
+.cadastro-area button {
+    border: none;
+    border-radius: 3px;
+    background-color: #5981e3;
+    color: white;
+    font-weight: bold;
+    padding: 6px 30px;
+    margin-top: 60px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.cadastro-area button:hover{
+    opacity: 0.95;
+}

@@ -1,0 +1,18 @@
+<div class="content-area">
+    <div class="info-area">
+        <div>
+            <h3>CHRONOS</h3>
+        </div>
+        <div>
+            <img src="../../assets/loginImage.png">
+        </div>
+        <button routerLink="cadastro" (click)="mudarAcessArea()" [hidden]="mudarAcess" type="button">Cadastre-se</button>
+        <button routerLink="cadastro" (click)="mudarAcessArea()" [hidden]="!mudarAcess" type="button">Login</button>
+    </div>
+    <div class="acess-area" [hidden]="mudarAcess">
+        <app-login></app-login>
+    </div>
+    <div class="acess-area" [hidden]="!mudarAcess">
+        <app-cadastro></app-cadastro>
+    </div>
+</div>
