@@ -6,13 +6,10 @@
         <div>
             <img src="../../assets/loginImage.png">
         </div>
-        <button routerLink="cadastro" (click)="mudarAcessArea()" [hidden]="mudarAcess" type="button">Cadastre-se</button>
-        <button routerLink="cadastro" (click)="mudarAcessArea()" [hidden]="!mudarAcess" type="button">Login</button>
+        <button routerLink="cadastro" (click)="mudarAcessArea()" [hidden]="!mudarAcess" type="button">Cadastre-se</button>
+        <button routerLink="login" (click)="mudarAcessArea()" [hidden]="mudarAcess" type="button">Login</button>
     </div>
-    <div class="acess-area" [hidden]="mudarAcess">
-        <app-login></app-login>
-    </div>
-    <div class="acess-area" [hidden]="!mudarAcess">
-        <app-cadastro></app-cadastro>
+    <div class="acess-area">
+        <router-outlet></router-outlet>
     </div>
 </div>

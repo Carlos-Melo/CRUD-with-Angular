@@ -5,6 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home.component';
 import { HomeService } from './home.service';
+import { HomeRoutingModule } from './home.routing.module';
+import { AuthService } from './login/auth.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,12 +18,16 @@ import { HomeService } from './home.service';
   ],
   imports: [
     CommonModule,
+    HomeRoutingModule,
+    FormsModule
   ],
   exports: [
     HomeComponent,
+    
   ],
   providers: [
-    HomeService
+    HomeService,
+    AuthService
   ]
 })
 

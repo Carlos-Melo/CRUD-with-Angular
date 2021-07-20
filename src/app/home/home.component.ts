@@ -8,12 +8,13 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  mudarAcess:boolean = false;
+  mudarAcess:boolean = true;
 
-  constructor(private homeService: HomeService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  } 
+  }
+  
 
   mudarAcessArea() {
     this.mudarAcess = !this.mudarAcess

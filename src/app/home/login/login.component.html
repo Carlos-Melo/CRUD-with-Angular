@@ -4,10 +4,10 @@
         <hr>
     </div>
     <div>
-        <input type="text" placeholder="E-mail" autofocus>
+        <input type="text" placeholder="E-mail" [(ngModel)]="usuario.email" autofocus>
     </div>
     <div>
-        <input type="password" placeholder="Senha">
+        <input type="password" placeholder="Senha" [(ngModel)]="usuario.senha">
     </div>
-    <button routerLink="contatos" type="button">Entrar</button>
-</div>
+    <button type="button" (click)='fazerLogin()'>Entrar</button>
+</div> 

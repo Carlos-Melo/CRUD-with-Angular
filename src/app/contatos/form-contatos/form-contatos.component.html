@@ -1,22 +1,22 @@
 <div class="form-container">
     <form action="">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome">
+        <input type="text" name="nome" id="nome" #nomeInput >
 
         <label for="sobrenome">Sobrenome:</label>
-        <input type="text" name="sobrenome" id="sobrenome">
+        <input type="text" name="sobrenome" id="sobrenome" #sobrenomeInput>
  
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" #emailInput>
 
         <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf">
+        <input type="text" name="cpf" id="cpf" #cpfInput>
 
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone">
+        <input type="text" name="telefone" id="telefone" #telefoneInput>
 
         <div>
-            <button type="button">Adicionar</button>
+            <button type="button" (click)="addContato(nomeInput.value, sobrenomeInput.value, emailInput.value, cpfInput.value, telefoneInput.value)">Adicionar</button>
         </div>
     </form>
 </div>

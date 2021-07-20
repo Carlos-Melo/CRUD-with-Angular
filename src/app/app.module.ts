@@ -6,21 +6,24 @@ import { ContatosModule } from './contatos/contatos.module';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { PerfilComponent } from './perfil/perfil.component';
+import { FormsModule } from '@angular/forms';
+import { PerfilModule } from './perfil/perfil.module';
+import { AuthGuard } from './guards/auth.guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    PerfilComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    ContatosModule
+    ContatosModule,
+    PerfilModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

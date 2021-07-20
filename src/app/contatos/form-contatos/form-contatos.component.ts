@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Contato } from '../contato';
+import { ContatosService } from '../contatos.service';
 
 @Component({
   selector: 'app-form-contatos',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormContatosComponent implements OnInit {
 
-  constructor() { }
+  contato: any = {};
+
+  constructor(private contatosService: ContatosService) {}
 
   ngOnInit(): void {
+
   }
 
+ addContato(nome:string, sobrenome:string, email:string, cpf:string, telefone:string) {
+    this.contatosService.setContatos(nome, sobrenome, email, cpf, telefone)
+  }
 }

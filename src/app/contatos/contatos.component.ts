@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faPlusCircle, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faWindowClose, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Contato } from './contato';
+import { ContatosService } from './contatos.service';
 
 @Component({
   selector: 'app-contatos',
@@ -9,18 +11,35 @@ import { faPlusCircle, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 })
 export class ContatosComponent implements OnInit {
 
-  click: boolean = false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   faPlusCircle = faPlusCircle;
   faWindowClose = faWindowClose;
+  faEdit = faEdit;
+  faTrashAlt = faTrashAlt;
 
-  isClicked() {
-    this.click = !this.click
+  open: boolean = false;
+
+  id: any;
+  contatos: Contato[] = [];
+
+  constructor(
+    private contatosService: ContatosService
+    ) { }
+
+  ngOnInit(): void {
+
+    this.contatos = this.contatosService.getContatos();
+
+  }
+
+  isWindowOpen() {
+    this.open = !this.open;
+  }
+
+  editar(id:any) {
+
+  }
+  excluir() {
+
   }
 
 }

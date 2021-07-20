@@ -1,10 +1,39 @@
 <div class="contatos-area">
     <div class="list-area">
-        <app-list-contatos></app-list-contatos>
+        <div class="list-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Email</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    <tr *ngFor="let contato of contatos">
+                        <td>{{ contato.id }}</td>
+                        <td>{{ contato.nome }}</td>
+                        <td>{{ contato.sobrenome }}</td>
+                        <td>{{ contato.email }}</td>
+                        <td>{{ contato.cpf }}</td>
+                        <td>{{ contato.telefone }}</td>
+                        <td> <fa-icon [icon]="faTrashAlt" (click)="excluir()"></fa-icon> </td>
+                        <td> <fa-icon [icon]="faEdit" (click)="editar(contato.id)"></fa-icon> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div [class.formMobile]="click" class="form-area">
-        <div class="windowClose"><fa-icon (click)="isClicked()" [class.iconCloseMobile]="click" [icon]="faWindowClose"></fa-icon></div>
+    <div [class.formMobile]="open" class="form-area">
+        <div class="windowClose">
+            <fa-icon (click)="isWindowOpen()" class="icon-form" [class.iconCloseMobile]="open" [icon]="faWindowClose"></fa-icon>
+        </div>
         <app-form-contatos></app-form-contatos>
     </div>
-    <fa-icon (click)="isClicked()" [class.iconCircleMobile]="click" [icon]="faPlusCircle"></fa-icon>
+    <fa-icon (click)="isWindowOpen()" class="icon-form" [class.iconCircleMobile]="open" [icon]="faPlusCircle"></fa-icon>
 </div>
