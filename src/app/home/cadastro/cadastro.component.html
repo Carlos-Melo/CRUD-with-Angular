@@ -1,22 +1,30 @@
-<div class="cadastro-area">
+<form class="cadastro-area" [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div>
         <h3>Cadastro</h3>
         <hr>
     </div>
     <div>
-        <input type="text" autofocus placeholder="E-mail">
+        <input type="text" autofocus placeholder="Nome" formControlName="nome" [ngClass]="aplicaCss('nome')">
+        <p *ngIf="verificaErro('nome')">Campo obrigatório</p>
     </div>
     <div>
-        <input type="password" placeholder="Senha">
+        <input type="text" placeholder="E-mail" formControlName="email" [ngClass]="aplicaCss('email')">
+        <p *ngIf="verificaErro('email')">Email inválido</p>
     </div>
     <div>
-        <input type="date">
+        <input type="password" placeholder="Senha" formControlName="senha" [ngClass]="aplicaCss('senha')">
+        <p *ngIf="verificaErro('senha')">Campo obrigatório</p>
     </div>
     <div>
-        <select name="genero" id="genero">
-            <option value="0">Masculino</option>
-            <option value="1">Feminino</option>
+        <input type="date" formControlName="data" [ngClass]="aplicaCss('data')">
+        <p *ngIf="verificaErro('data')">Campo obrigatório</p>
+    </div>
+    <div>
+        <select id="genero" formControlName="genero" [ngClass]="aplicaCss('genero')">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
         </select>
+        <p *ngIf="verificaErro('genero')">Campo obrigatório</p>
     </div>
-    <button type="button">Criar</button>
-</div>
+    <button type="submit">Criar</button>
+</form>

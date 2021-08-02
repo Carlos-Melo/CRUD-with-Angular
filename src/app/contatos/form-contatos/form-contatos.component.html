@@ -1,22 +1,27 @@
 <div class="form-container">
-    <form action="">
+    <div class="erroArea" >
+        <p><fa-icon *ngIf="isErroExist" [icon]="faExclamationTriangle"></fa-icon> {{ erroText }}</p>
+    </div>
+    <form action="" #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+        
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" #nomeInput >
+        <input type="text" name="nome" id="nome" [ngModel]="contato.nome">
 
         <label for="sobrenome">Sobrenome:</label>
-        <input type="text" name="sobrenome" id="sobrenome" #sobrenomeInput>
+        <input type="text" name="sobrenome" id="sobrenome" [ngModel]="contato.sobrenome">
  
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email" #emailInput>
+        <input type="text" name="email" id="email" [ngModel]="contato.email" email>
 
         <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf" #cpfInput>
+        <input type="text" name="cpf" id="cpf" minlength="14" [ngModel]="contato.cpf" (keyup)="cpfMask($event)">
 
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" #telefoneInput>
+        <input type="text" name="telefone" id="telefone" [ngModel]="contato.telefone">
 
         <div>
-            <button type="button" (click)="addContato(nomeInput.value, sobrenomeInput.value, emailInput.value, cpfInput.value, telefoneInput.value)">Adicionar</button>
+            <button type="submit" [hidden]="isEdit">Adicionar</button>
+            <button type="button" [hidden]="!isEdit" (click)="editContato(formulario)">Salvar</button>
         </div>
     </form>
 </div>

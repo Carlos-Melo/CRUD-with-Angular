@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from './home.service';
 
 @Component({
@@ -9,10 +10,14 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
   mudarAcess:boolean = true;
+  msgErro:string = ''
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private homeService: HomeService) { }
 
   ngOnInit(): void {
+    this.router.navigate(['login'])
   }
   
 

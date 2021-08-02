@@ -8,15 +8,15 @@ import { PerfilComponent } from "./perfil/perfil.component"
 import { AuthGuard } from "./guards/auth.guard.service";
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
-    { path: 'contatos', component: ContatosComponent, canActivate: [AuthGuard]},
-    { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard]},
+    { path: 'contatos', component: ContatosComponent, canActivate: [AuthGuard], canLoad: [AuthGuard]},
+    { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard], canLoad: [AuthGuard]},
+    { path: '', component: HomeComponent}
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes, {useHash: true})
     ],
     exports: [RouterModule]
 })

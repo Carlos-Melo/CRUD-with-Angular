@@ -22,7 +22,7 @@
                         <td>{{ contato.email }}</td>
                         <td>{{ contato.cpf }}</td>
                         <td>{{ contato.telefone }}</td>
-                        <td> <fa-icon [icon]="faTrashAlt" (click)="excluir()"></fa-icon> </td>
+                        <td> <fa-icon [icon]="faTrashAlt" (click)="excluir(contato.id)"></fa-icon> </td>
                         <td> <fa-icon [icon]="faEdit" (click)="editar(contato.id)"></fa-icon> </td>
                     </tr>
                 </tbody>

@@ -23,7 +23,7 @@ import { AuthGuard } from './guards/auth.guard.service';
     PerfilModule,
     FormsModule
   ],
-  providers: [AuthGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

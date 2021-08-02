@@ -12,13 +12,20 @@ export class NavComponent implements OnInit {
   mostrarMenu: boolean = false
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
     this.authService.mostratMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
     )
+  }
+
+  sair() {
+    this.router.navigate(['login'])
+
+    this.mostrarMenu = false;
   }
 
 }

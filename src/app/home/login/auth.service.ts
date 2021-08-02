@@ -1,6 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from './usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,9 @@ export class AuthService {
 
   constructor(private router: Router) { }
 
-  fazerLogin(usuario: Usuario) {
-    if(usuario.email === '1' && usuario.senha === '1') {
+  fazerLogin(usuario:any) {
+    
+    if(usuario.value.email === 'usuario@email.com' && usuario.value.senha === '1') {
       
       this.usuarioAutenticado = true;
 

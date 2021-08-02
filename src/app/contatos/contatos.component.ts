@@ -18,7 +18,6 @@ export class ContatosComponent implements OnInit {
 
   open: boolean = false;
 
-  id: any;
   contatos: Contato[] = [];
 
   constructor(
@@ -36,10 +35,11 @@ export class ContatosComponent implements OnInit {
   }
 
   editar(id:any) {
-
+    this.contatosService.eventEditContato(id)
   }
-  excluir() {
-
+  
+  excluir(id:any) {
+    this.contatosService.excluirContato(id)
   }
 
 }

@@ -19,8 +19,9 @@
 
 .login-area input {
     width: 60%;
-    border: none;
-    border-bottom: 2px solid #e0e0e0;
+    border-left: none;
+    border-top: none;
+    border-right: none;
     padding: 7px;
     margin-top: 30px;
     outline: none;
@@ -29,6 +30,22 @@
 
 .login-area input:focus{
     border-bottom: 2px solid #5981e3;
+}
+
+.erro {
+    border-bottom: 2px solid red;
+}
+
+.certo {
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.login-area p {
+    width: 60%;
+    margin: auto;
+    color: red;
+    text-align: left;
+    font-size: 12px;
 }
 
 .login-area button {

@@ -15,8 +15,6 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule
   ],
-  providers: [
-    PerfilService
-  ]
+  providers: []
 })
 export class PerfilModule { }
