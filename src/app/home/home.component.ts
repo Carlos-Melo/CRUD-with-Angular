@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +7,9 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  mudarAcess:boolean = true;
-  msgErro:string = ''
-
-  constructor(
-    private router: Router,
-    private homeService: HomeService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.router.navigate(['login'])
-  }
-  
-
-  mudarAcessArea() {
-    this.mudarAcess = !this.mudarAcess
   }
 
 }

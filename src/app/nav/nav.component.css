@@ -1,13 +1,17 @@
 nav {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background-color: #5981e3;
     padding: 0px 30px;
 }
 
-a, h4 {
+nav img {
+    width: 40px;
+}
+
+a {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -21,5 +25,7 @@ a:hover {
 }
 
 .active {
+    border-bottom: 3px solid white;
     background: #4E77D9;
+    
 }

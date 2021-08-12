@@ -12,3 +12,10 @@ O maior objetivo desse projeto é praticar sobre as tecnologias que estou estuda
 * HTML5
 * JSON Server
 
+## Como?
+
+Para rodar o projeto você precisa ter instalado em sua máquina: NPM, Angular CLI e JSON Server.
+
+1. npm install
+2. ng serve
+3. json-server --w db.json

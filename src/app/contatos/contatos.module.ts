@@ -4,15 +4,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ContatosComponent } from './contatos.component';
 import { FormContatosModule } from './form-contatos/form-contatos.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    ContatosComponent,
+    ContatosComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
-    FormContatosModule
+    FormContatosModule,
+    HttpClientModule
   ],
   exports: [],
   providers: []

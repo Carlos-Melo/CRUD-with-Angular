@@ -1,7 +1,7 @@
 <div class="contatos-area">
     <div class="list-area">
         <div class="list-container">
-            <table>
+            <table *ngIf="contatos$ | async as contatos; else loadingError">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -28,6 +28,20 @@
                 </tbody>
             </table>
         </div>
+        <ng-template #loadingError>
+            <div class="loading-erro" *ngIf="error$ | async; else loading">
+                <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                <hr>
+                <strong>Erro</strong>
+                <p>Não conseguimos carrregar seus contatos.</p>
+                <button type="button" (click)="getContatos()">Tentar novamente</button>
+            </div>
+            <ng-template #loading>
+                <div class="loading-area">
+                    <div class="lds-dual-ring" ></div>
+                </div>
+            </ng-template>
+        </ng-template>
     </div>
     <div [class.formMobile]="open" class="form-area">
         <div class="windowClose">

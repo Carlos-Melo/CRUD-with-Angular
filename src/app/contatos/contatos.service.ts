@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
+import { take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Contato } from './contato';
 
 @Injectable({
@@ -9,47 +12,33 @@ export class ContatosService {
   //Emissão de evento quando o botão editar é clicado
   emitirEditar = new EventEmitter<any>();
 
-  private contatos: Contato[] = [
-    {id: 0, nome:'Carlos', sobrenome:'Eduardo', email:'carloszdu@gmail.com', cpf:'000.000.000-00', telefone:'(81) 98698-7034'},
-    {id: 1, nome:'Eduardo', sobrenome:'Pereira', email:'eduardo@gmail.com', cpf:'111.111.111-11', telefone:'(81) 98698-7034'}
-  ];
+  private readonly API = `${environment.API}contatos`;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
  
   getContatos(){
-    return this.contatos;
+    return this.http.get<Contato[]>(this.API);
   }
   
   setContatos(contato: Contato){
-    this.contatos.push({
-      id: this.contatos.length,
-      nome: contato.nome,
-      sobrenome: contato.sobrenome,
-      email: contato.email,
-      cpf: contato.cpf,
-      telefone: contato.telefone
-    });
-     
+    return this.http.post(this.API, contato).pipe(take(1));
   }
 
   eventEditContato(id:any){
-    this.emitirEditar.emit(this.contatos[id]);
+    this.emitirEditar.emit(id);
+    
   }
 
-  setEditContato(id:any, contato:any){
-    this.contatos[id] = contato;
+  getEditContato(id: number){
+    return this.http.get( `${this.API}/${id}`).pipe(take(1))
+  }
 
-    this.contatos[id].id = id;
+  setEditContato(contato: any, id: number){
+    return this.http.put( `${this.API}/${id}`, contato).pipe(take(1))
   }
 
   excluirContato(id:any){
-
-    for (let i = id; i < this.contatos.length; i++) {
-      const element = this.contatos[i];
-      element.id --
-    }
-
-    this.contatos.splice(id, 1);
+    return this.http.delete(`${this.API}/${id}`).pipe(take(1))
   } 
 
 }

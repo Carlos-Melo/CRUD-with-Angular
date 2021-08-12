@@ -11,7 +11,7 @@ export class FormContatosComponent implements OnInit {
 
   isEdit: boolean = false;
   isErroExist: boolean = false;
-  erroText: string =  ""
+  erroText: string;
   faExclamationTriangle = faExclamationTriangle;
   contato: any = [];
 
@@ -20,8 +20,9 @@ export class FormContatosComponent implements OnInit {
   ngOnInit(): void {
     
       this.contatosService.emitirEditar.subscribe(
-        contato => {
-          this.contato = contato;
+        id => {
+          const contato$ = this.contatosService.getEditContato(id);
+          contato$.subscribe( contato => this.contato = contato)
           
           this.isEdit = true;
         } 
@@ -32,30 +33,26 @@ export class FormContatosComponent implements OnInit {
     
     this.isErroExist = this.retornaErro(formulario.controls);
     
-    console.log(this.isErroExist);
-    console.log(formulario.controls);
-    
-  
     if(this.isErroExist == false){
 
-      this.contatosService.setContatos(formulario.value);
+      this.contatosService.setContatos(formulario.value).subscribe(
+        success => console.log('sucesso'),
+        error => console.log(error),
+        () => console.log('request completo')
+        
+      );
 
       formulario.form.reset();
-
     }
-    
-    
   }
   
-  editContato(formulario:any){
-
-    let id =  this.contato.id;
+  editContato(formulario:any){ 
     
-    this.contato = formulario.value;
-
-    this.contatosService.setEditContato(id, this.contato);
-
-    formulario.form.reset();
+    this.contatosService.setEditContato(formulario.value, this.contato.id).subscribe(
+      success => console.log('sucesso'),
+        error => console.log(error),
+        () => console.log('update completo')
+    )
 
     this.contato = [];
 

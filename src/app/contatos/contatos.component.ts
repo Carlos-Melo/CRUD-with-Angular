@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faPlusCircle, faWindowClose, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faWindowClose, faEdit, faTrashAlt, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { Observable, empty, Subject } from 'rxjs';
 import { Contato } from './contato';
 import { ContatosService } from './contatos.service';
+import { catchError } from 'rxjs/operators'
 
 @Component({
   selector: 'app-contatos',
@@ -15,19 +17,30 @@ export class ContatosComponent implements OnInit {
   faWindowClose = faWindowClose;
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
+  faExclamationCircle = faExclamationCircle;
 
   open: boolean = false;
 
-  contatos: Contato[] = [];
+  contatos$: Observable<Contato[]>;
+  error$ = new Subject<boolean>();
 
-  constructor(
-    private contatosService: ContatosService
-    ) { }
+  constructor(private contatosService: ContatosService) { }
 
   ngOnInit(): void {
 
-    this.contatos = this.contatosService.getContatos();
+    this.getContatos();
+    
+  }
 
+  getContatos(){
+    this.contatos$ = this.contatosService.getContatos()
+    .pipe(
+      catchError(error => {
+        console.error(error);
+        this.error$.next(true);
+        return empty();
+      })
+    );
   }
 
   isWindowOpen() {
@@ -35,11 +48,15 @@ export class ContatosComponent implements OnInit {
   }
 
   editar(id:any) {
-    this.contatosService.eventEditContato(id)
+    this.contatosService.eventEditContato(id);
   }
   
   excluir(id:any) {
-    this.contatosService.excluirContato(id)
+    this.contatosService.excluirContato(id).subscribe(
+      error => console.log(error),
+      success => this.getContatos()
+      
+    );
   }
 
 }

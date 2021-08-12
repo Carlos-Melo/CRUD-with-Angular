@@ -1,8 +1,7 @@
-<nav *ngIf='mostrarMenu'>
-    <h4>CHRONOS</h4>
+<nav>
     <div>
+        <a routerLink="home" routerLinkActive="active">Home</a>
         <a routerLink="contatos" routerLinkActive="active">Contatos</a>
-        <a routerLink="perfil" routerLinkActive="active">Perfil</a>
-        <a (click)='sair()' >Sair</a>
     </div>
+    <img src="../../assets/chronos.png">
 </nav>

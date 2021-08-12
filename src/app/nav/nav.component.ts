@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../home/login/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,23 +7,9 @@ import { AuthService } from '../home/login/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  mostrarMenu: boolean = false
-
-  constructor(
-    private authService: AuthService,
-    private router: Router
-    ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.authService.mostratMenuEmitter.subscribe(
-      mostrar => this.mostrarMenu = mostrar
-    )
-  }
-
-  sair() {
-    this.router.navigate(['login'])
-
-    this.mostrarMenu = false;
   }
 
 }

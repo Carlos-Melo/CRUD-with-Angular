@@ -29,6 +29,10 @@
     color: #5981e3;
 }
 
+fa-icon {
+    cursor: pointer;
+}
+
 /* List style*/
 
 .list-container {
@@ -76,6 +80,65 @@ th, td {
     border-radius: 20px;
     border: 3px solid #e0e0e0;
 }
+
+/* loading style*/
+
+.loading-erro {
+    width: 30%;
+    margin: auto;
+    padding: 7px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0px 5px 0 #e0e0e0, 0 1px 5px 0 #e0e0e0;
+}
+
+.loading-erro > fa-icon {
+    color: #dc4a46;
+    font-size: 35px;
+}
+
+.loading-erro > button {
+    background-color: #dc4a46;
+    border: none;
+    padding: 5px 7px;
+    border-radius: 3px;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.loading-erro hr {
+    border: solid 1px #e0e0e0;
+}
+
+.loading-area {
+    text-align: center;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #5981e3;
+    border-color: #5981e3 transparent #5981e3 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    } 
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 @media screen and (max-width: 800px) {
     .form-area {
