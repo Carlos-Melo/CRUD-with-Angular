@@ -17,10 +17,10 @@
         <input type="text" name="email" id="email" [ngModel]="contato.email" email>
 
         <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf" minlength="14" [ngModel]="contato.cpf" (keyup)="cpfMask($event)">
+        <input type="text" name="cpf" id="cpf" maxlength="14" [ngModel]="contato.cpf" (keyup)="cpfMask($event)">
 
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" [ngModel]="contato.telefone">
+        <input type="text" name="telefone" id="telefone" maxlength="11" [ngModel]="contato.telefone">
 
         <div>
             <button type="submit" [hidden]="isEdit">Adicionar</button>
