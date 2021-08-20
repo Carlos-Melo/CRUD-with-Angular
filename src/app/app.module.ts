@@ -4,16 +4,14 @@ import { AppRoutingModule } from './app.routing.module';
 import { ContatosModule } from './contatos/contatos.module';
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
+import { Erro404Component } from './erro404/erro404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    HomeComponent,
-  ],
+    Erro404Component,
+],
   imports: [
     BrowserModule,
     AppRoutingModule,

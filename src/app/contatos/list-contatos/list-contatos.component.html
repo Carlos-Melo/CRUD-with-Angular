@@ -1,0 +1,54 @@
+<div class="contatos-area">
+  <div class="list-area">
+    <div class="list-container">
+      <div class="top-bar">
+        <h3>CHRONOS</h3>
+        <a routerLink="criar"><fa-icon class="icon-add" [icon]="faUser"></fa-icon>Add Pessoa</a>
+      </div>
+      <table *ngIf="contatos$ | async as contatos; else loadingError">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contato of contatos">
+            <td>{{ contato.id }}</td>
+            <td>{{ contato.nome }}</td>
+            <td>{{ contato.sobrenome }}</td>
+            <td>{{ contato.email }}</td>
+            <td>{{ contato.cpf }}</td>
+            <td>{{ contato.telefone }}</td>
+            <td>
+              <fa-icon [icon]="faTrashAlt" (click)="excluir(contato.id)"></fa-icon>
+            </td>
+            <td>
+              <a [routerLink]="['edit', contato.id]"><fa-icon [icon]="faEdit"></fa-icon></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #loadingError>
+      <div class="loading-erro" *ngIf="error$ | async; else loading">
+        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+        <hr>
+        <strong>Erro</strong>
+        <p>Não conseguimos carrregar seus contatos.</p>
+        <button type="button" (click)="getContatos()">Tentar novamente</button>
+      </div>
+      <ng-template #loading>
+        <div class="loading-area">
+          <div class="lds-dual-ring"></div>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

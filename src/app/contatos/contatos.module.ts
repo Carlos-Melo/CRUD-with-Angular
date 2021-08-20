@@ -2,21 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { ContatosComponent } from './contatos.component';
-import { FormContatosModule } from './form-contatos/form-contatos.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ListContatosComponent } from './list-contatos/list-contatos.component';
+import { ContatosRoutingModule } from './contatos.routing.module';
+import { FormContatosComponent } from './form-contatos/form-contatos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ContatosComponent
+    ListContatosComponent,
+    FormContatosComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
-    FormContatosModule,
-    HttpClientModule
+    HttpClientModule,
+    ContatosRoutingModule,
+    FormsModule
   ],
-  exports: [],
-  providers: []
+  exports: []
 })
 export class ContatosModule { }

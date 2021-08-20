@@ -1,0 +1,36 @@
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form-container {
+    width: 390px;
+    margin-top: 20px;
+  }
+
+  .back {
+    fa-icon {
+      margin: 10px 15px;
+    }
+  }
+
+  .container {
+    .img-area {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contatos-area {
+    .list-area {
+      width: 90%;
+    }
+  }
+}

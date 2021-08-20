@@ -1,15 +1,18 @@
+<div class="back">
+  <a routerLink="" (click)="redirecionar()"><fa-icon [icon]="faArrowLeft"></fa-icon></a>
+</div>
 <div class="form-container">
     <div class="erroArea" >
         <p><fa-icon *ngIf="isErroExist" [icon]="faExclamationTriangle"></fa-icon> {{ erroText }}</p>
     </div>
     <form action="" #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-        
+
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" [ngModel]="contato.nome">
 
         <label for="sobrenome">Sobrenome:</label>
         <input type="text" name="sobrenome" id="sobrenome" [ngModel]="contato.sobrenome">
- 
+
         <label for="email">Email:</label>
         <input type="text" name="email" id="email" [ngModel]="contato.email" email>
 
@@ -21,7 +24,10 @@
 
         <div>
             <button type="submit" [hidden]="isEdit">Adicionar</button>
-            <button type="button" [hidden]="!isEdit" (click)="editContato(formulario)">Salvar</button>
+            <div [hidden]="!isEdit">
+              <button type="button" (click)="editContato(formulario)">Salvar</button>
+              <button type="button" (click)="redirecionar()" class="cancel">Cancelar</button>
+            </div>
         </div>
     </form>
 </div>

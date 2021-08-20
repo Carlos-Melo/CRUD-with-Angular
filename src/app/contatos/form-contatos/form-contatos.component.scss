@@ -1,0 +1,68 @@
+@import '../../../styles/main';
+
+.back {
+  fa-icon {
+    color: $primary-color;
+    position: absolute;
+    margin-left: 30px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.form-container {
+  @include containerStyle(true);
+  width: 400px;
+
+
+  .erroArea {
+    background-color: $primary-color;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    padding: 3px;
+    border-radius: 3px 3px 0px 0px;
+  }
+
+  form {
+    padding: 40px 50px;
+
+    label {
+      color: $dark-gray;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 4px;
+      margin-bottom: 20px;
+      color: $dark-gray;
+      border: 1px solid $light-gray;
+      border-radius: 3px;
+      outline: none;
+
+      &:focus {
+        border-color: $primary-color;
+      }
+    }
+
+    div {
+      text-align: center;
+
+      button {
+        background-color: $primary-color;
+        border: none;
+        border-radius: 3px;
+        padding: 8px 16px;
+        margin-top: 20px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .cancel {
+        background-color: $gray;
+        margin-left: 5px;
+      }
+    }
+  }
+}

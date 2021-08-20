@@ -1,0 +1,37 @@
+@import '../../styles/base';
+
+.container {
+  @include boundaries(true);
+  width: 80%;
+  height: 90vh;
+
+  .img-area {
+    img {
+      width: 400px;
+    }
+  }
+
+  .text-area {
+    text-align: center;
+
+    h3 {
+      font-size: 45px;
+      color: $dark-gray;
+    }
+
+    h1 {
+      font-size: 100px;
+      color: $primary-color;
+    }
+
+    p {
+      font-size: 13px;
+      color: $dark-gray;
+      margin-bottom: 20px;
+    }
+
+    a {
+      @include buttonStyle(5px, 20px);
+    }
+  }
+}
